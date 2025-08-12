@@ -1,0 +1,50 @@
+# config.yaml
+app:
+  name: "CV Document Analyzer"
+  supported_formats: ["pdf", "docx", "png", "jpg", "jpeg", "zip"]
+  supported_languages: ["eng"]
+
+ocr:
+  tesseract:
+    psm_mode: 3  # Common value for regular text documents
+    languages: ["eng"]
+  engine: "tesseract"
+  languages: ["eng"]
+  dpi: 300
+  oem: 3  # OCR Engine mode
+  preprocessing:
+    deskew: true
+    denoise: true
+    adaptive_threshold: true
+    binarization: true
+
+nlp:
+  models:
+    english:
+      transformer: "en_core_web_trf"
+      small: "en_core_web_sm"
+  use_transformer: true  # Set to false for low-resource environments
+
+entity_extraction:
+  confidence_threshold: 0.7
+  skills_dictionary:
+    path: "data/skills_dictionary.json"
+  fuzzy_match_threshold: 85
+
+skills:
+  dictionaries:
+    english: "dictionaries/skills_en.json"
+    indonesian: "dictionaries/skills_id.json"
+  fuzzy_match_threshold: 85  # Percent similarity for fuzzy matching
+
+export:
+  formats:
+    - "csv"
+    - "json"
+    - "xlsx"
+  annotate_pdfs: true
+
+evaluation:
+  precision_targets:
+    personal_fields: 95  # Name, email, phone
+    skills: 85          # Technical and soft skills
