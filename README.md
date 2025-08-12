@@ -128,7 +128,7 @@ See [requirements.txt](requirements.txt) for the complete list of dependencies.
 
 ## Contributors
 
-- Your Name
+- Aris Muhandisin
 
 ## Acknowledgments
 
